@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <form id="myForm">
+
+        <div class="form-group">
+            <label for="name" class="required">Ім'я</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="Email" class="required">Email</label>
+            <input type="text" id="Email" name="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="required">Пароль</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <label for="cars">Оберіть групу:</label>
+        <select id="cars" name="cars">
+            <option value="knd-11">КНД-11</option>
+            <option value="knd-12">КНД-12</option>
+            <option value="knd-13">КНД-13</option>
+            <option value="knd-14">КНД-14</option>
+        </select>
+        <br>
+        <br>
+        <div class="gender-selection">
+            <label class="gender-label">Стать:</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="male">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">чол</span>
+                </label>
+                
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="female">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">жін</span>
+                </label>
+                
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="unspecified" checked>
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Один з 86 гендерів</span>
+                </label>
+           
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="about">Про себе:</label>
+            <textarea id="about" name="about" placeholder="Розкажіть коротко про себе..."></textarea>
+        </div>
+        <div class="age">
+            <label for="age">Вік:</label>
+            <input type="number" id="age" name="age" min="0" max="100">
+        </div>
+        <br>
+        <input type="checkbox" name="consent" required>
+        <label>Згода на обробку даних</label><br>
+        <button type="reset">Скинути</button>
+
+    </form>
+    
+        
+        
+
+        <button type="submit" onclick="handleClick(event)">Відправити</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
