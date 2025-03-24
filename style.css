@@ -1,159 +1,167 @@
+:root {
+    --primary-color: #4285f4;       /* Основной синий */
+    --secondary-color: #34a853;    /* Зеленый */
+    --danger-color: #ea4335;       /* Красный */
+    --background-color: #f5f7fa;   /* Светлый фон */
+    --text-color: #202124;         /* Основной текст */
+    --border-color: #dadce0;       /* Цвет границ */
+    --accent-color: #1a73e8;       /* Акцентный синий */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
+    color: var(--text-color);
+    line-height: 1.6;
 }
+
+#myForm {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
 .form-group {
-    margin-bottom: 15px;                                
-}
-label {
-    display: block;
-    margin-bottom: 5px;                                                 
-    font-weight: bold;
-}
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-select {                                                             /* Стилізація полів вводу */                                       
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-.radio-group {
-    display: flex;
-    gap: 15px;
-}
-.radio-option {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 15px 0;
-}                                                          /* Стилізація блоку з чекбоксами */
-
-button {
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 17px;
-    display: flex;
-    justify-content: flex-start; 
-    gap: 20px; 
-    margin-top: 10px;
-}
-
-button[type="submit"] {
-    background-color: #52b555;                                      /*Кнопка "Відправити" */
-}
-button[type="reset"] {
-    background-color: #f44336;
-    margin-top: 10px;                                              /*Кнопка "Скинути" */
-}
-.gender-selection {                                           /* Стилізація блоку з радіокнопками */
-    margin-bottom: 20px;
-}
-
-.gender-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-}
-
-.radio-group {
-    display: flex;
-    gap: 20px;
-}
-
-.radio-option {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-}
-
-.radio-option input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.radio-custom {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: #fff;
-    border: 2px solid #52b555;
-    border-radius: 50%;
-    transition: all 0.3s;
-}
-
-.radio-option:hover .radio-custom {
-    border-color: #3d8b40;
-}
-
-.radio-option input:checked ~ .radio-custom {
-    background-color: #52b555;
-    border-color: #52b555;
-}
-
-.radio-custom:after {
-    content: "";
-    position: absolute;
-    display: none;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-    transform: translate(-50%, -50%);
-}
-
-.radio-option input:checked ~ .radio-custom:after {
-    display: block;
-}
-
-.radio-text {
-    margin-left: 5px;
-    color: #555;
-}
-.form-group {                              /* Стилізація блоку з полями вводу */
     margin-bottom: 20px;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
+.required:after {
+    content: " *";
+    color: var(--danger-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    min-height: 40px;
-    resize: vertical; 
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: white;
 }
 
+input:focus,
+select:focus,
 textarea:focus {
-    border-color: #52b555;
+    border-color: var(--accent-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(82, 181, 85, 0.3);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+}
+
+/* Стили для радиокнопок (упрощенная версия) */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Стили для textarea */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* Стили для чекбокса */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Стили для кнопок */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+button[type="reset"] {
+    background-color: white;
+    color: var(--danger-color);
+    border: 2px solid var(--danger-color);
+}
+
+button[type="reset"]:hover {
+    background-color: #fce8e6;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
 }
