@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,21 +16,24 @@
         </div>
         <div class="form-group">
             <label for="Email" class="required">Email</label>
-            <input type="text" id="Email" name="Email" required>
+            <input type="email" id="Email" name="Email" required>
         </div>
         <div class="form-group">
             <label for="password" class="required">Пароль</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <label for="cars">Оберіть групу:</label>
-        <select id="cars" name="cars">
-            <option value="knd-11">КНД-11</option>
-            <option value="knd-12">КНД-12</option>
-            <option value="knd-13">КНД-13</option>
-            <option value="knd-14">КНД-14</option>
-        </select>
-        <br>
-        <br>
+        
+        <div class="form-group">
+            <label for="group" class="required">Оберіть групу:</label>
+            <select id="group" name="group" required> 
+                <option value="">-- Оберіть --</option> 
+                <option value="knd-11">КНД-11</option>
+                <option value="knd-12">КНД-12</option>
+                <option value="knd-13">КНД-13</option>
+                <option value="knd-14">КНД-14</option>
+            </select>
+        </div>
+        
         <div class="gender-selection">
             <label class="gender-label">Стать:</label>
             <div class="radio-group">
@@ -53,28 +57,35 @@
            
             </div>
         </div>
+        
         <div class="form-group">
             <label for="about">Про себе:</label>
             <textarea id="about" name="about" placeholder="Розкажіть коротко про себе..."></textarea>
         </div>
-        <div class="age">
+        
+        <div class="form-group">
             <label for="age">Вік:</label>
             <input type="number" id="age" name="age" min="0" max="100">
         </div>
-        <br>
-        <input type="checkbox" name="consent" required>
-        <label>Згода на обробку даних</label><br>
-        <button type="reset">Скинути</button>
-
-    </form>
-    
         
+        <div class="form-group">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent" class="required">Згода на обробку даних</label>
+        </div>
         
-
-        <button type="submit" onclick="handleClick(event)">Відправити</button>
+        <div class="form-group">
+            <button type="submit">Відправити</button> <!-- Кнопка внутри формы -->
+            <button type="reset">Скинути</button>
+        </div>
     </form>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            alert('Форма відправлена!'); 
+           
+        });
+
+    </script>
 </body>
-
 </html>
